@@ -17,7 +17,8 @@ Python Script for Synchronizing Zendesk articles with Smartling via API
 
 - Backup existing content using new script</b>
 
-<p>
+<br/>
+
 <b>NOTES</b>
 
 Be aware of handling of ‘draft’ articles and incomplete translations in Smartling:
@@ -83,7 +84,7 @@ es = es-es
 
 ja = ja-JP</b>
 
-<p>
+<br/>
 
 <b>translate.cfg</b>
 
@@ -106,7 +107,7 @@ ja = ja-JP</b>
 
 987654
 
-<p>
+<br/>
 <b>COMMAND-LINE OPTIONS</b>
 
 -t, --translate             
