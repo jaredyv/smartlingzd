@@ -71,11 +71,55 @@ Previously transferred content is transferred again with the ‘all’ option. T
 
 Currently, all hyperlinks containing ‘/en-us/’ in the path are updated to point to the translated version instead. This may need to be refined depending on what sort of links are on the actual articles.
 
+<b>CONFIG FILES</b>
+
+<b>smartlingzd.cfg</b>
+
+; Configuration file for the Smartling-Zendesk integration script.
+; Contains basic parameters required for the script to work.
+
+[general]
+log_file = smartlingzd.log
+
+[smartling]
+api_key = <b>keykeykeykey1234567890</b>
+project_id = <b>projectid1234</b>
+approve_for_translation = <b>yes</b>
+
+[zendesk]
+url = https://<b>customer</b>.zendesk.com
+user = <b>name@customer.com</b>
+auth_token = <b>tokentokentoken1223108</b>
+
+[zd-to-sl-locales]
+<b>fr = fr-fr
+de = de-de
+nl = nl-nl
+es = es-es
+ja = ja-JP</b>
+
+
+<b>translate.cfg</b>
+
+; Optional configuration file for the Smartling-Zendesk integration script.
+; Specifies which articles include/exclude in transfers from Zendesk to Smartling
+; The file is used when the 'all' option is specified for articles on the command line. 
+
+; item IDs should be listed under each section, with each ID on a separate line
+; if nothing is included in a section, it means 'all' for 'include' sections and 'none' for 
+; 'exclude' sections
+
+[include-articles]
+123456
+234567
+
+
+[exclude-articles]
+987654
+
+
 <b>COMMAND-LINE OPTIONS</b>
 
-Option                      
-
-Description
 -t, --translate             
 
 Transfer source content from ZenDesk to Smartling
@@ -111,72 +155,30 @@ The least-critical level of log messages to include in the log file. Valid value
 
 <b>SAMPLE USAGE</b>
 
-Transfer all completed translations from Smartling to Zendesk:
-
-./smartlingzd.py --retrievetranslations --articles all --categories all --sections all -locales all
-
 Transfer all articles from Zendesk to Smartling for translation:
 
 ./smartlingzd.py -t -a all -c all -s all -l all
 
+Transfer all completed translations from Smartling to Zendesk:
+
+./smartlingzd.py --retrievetranslations --articles all --categories all --sections all -locales all
+
 Send two articles and all completed categories from Zendesk to Smartling, with detailed logging:
 
 ./smartlingzd.py --translate --articles 901922090,901922091 --categories all --loglevel debug
+
 Or:
+
 ./smartlingzd.py -t -a 901922090,901922091 -c all -g debug
 
 Tranfer the published French and German translations for the specified article from Smartling to Zendesk:
 
  ./smartlingzd.py --retrievetranslations --articles 901922090 --retrievaltype published –-locales fr,de
+ 
 Or:
+
 ./smartlingzd.py -r -a 901922090 -y published -l fr,de
 
  Display help on command-line options :
 
 ./smartlingzd -h
-    
-    
-<b>smartlingzd.cfg</b>
-
-; Configuration file for the Smartling-Zendesk integration script.
-; Contains basic parameters required for the script to work.
-
-[general]
-log_file = smartlingzd.log
-
-[smartling]
-api_key =
-project_id = 
-approve_for_translation = yes
-
-[zendesk]
-url = https://adroll.zendesk.com
-user = 
-auth_token =
-
-[zd-to-sl-locales]
-fr = fr-fr
-de = de-de
-nl = nl-nl
-es = es-es
-ja = ja
-
-
-<b>translate.cfg</b>
-
-; Optional configuration file for the Smartling-Zendesk integration script.
-; Specifies which articles include/exclude in transfers from Zendesk to Smartling
-; The file is used when the 'all' option is specified for articles on the command line. 
-
-; item IDs should be listed under each section, with each ID on a separate line
-; if nothing is included in a section, it means 'all' for 'include' sections and 'none' for 
-; 'exclude' sections
-
-[include-articles]
-123456
-234567
-
-
-[exclude-articles]
-987654
-
