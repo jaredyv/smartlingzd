@@ -3,8 +3,7 @@ Python Script for Synchronizing Zendesk articles with Smartling via API
 
 <b>INSTALLATION
 
--Backup current Zendesk HelpCenter content using existing scripts
-
+- Backup current Zendesk HelpCenter content using existing scripts
 - Install prerequisite python libraries. Run terminal and enter commands below. (You’ll need to enter your Mac password.)
 
      sudo easy_install lxml
@@ -12,9 +11,7 @@ Python Script for Synchronizing Zendesk articles with Smartling via API
      sudo easy_install zdesk
 
 - Install script, including Smartling SDK
-
 - Set config file values
-
 - Backup existing content using new script </b>
 
 <br/>
