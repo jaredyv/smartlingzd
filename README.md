@@ -4,27 +4,49 @@ Python Script for Synchronizing Zendesk articles with Smartling via API
 <b>INSTALLATION</b> 
 
 Backup current Zendesk HelpCenter content using existing scripts
+
 Install prerequisite python libraries. Run terminal and enter commands below. (You’ll need to enter your Mac password.)
+
 sudo easy_install lxml
+
 sudo easy_install zdesk
+
 Install script, including Smartling SDK
+
 Set configuration values
+
 Backup existing content using new script
+
 Test articles:
+
 Create test workflow and make it the default temporarily
+
 Transfer 1 article from Zendesk to Smartling
+
 Confirm that existing translations are picked up in Smartling (e.g., German should be 100%??)
+
 Transfer 1 translated article from Smartling to Zendesk, 1 locale
+
 Confirm that translated article works as expected in Zendesk
+
 Repeat for a set of articles, 2 locales, many locales
+
 Review log file
+
 Test categories and sections
+
 Transfer 1 of each to Smartling
+
 Review log file
+
 Transfer all categories and sections
+
 Transfer all articles gradually, using exclusions initially, confirming at each step
+
 Backup again
+
 (Later) Remove old CSV files from Smartling project.
+
 
 <b>NOTES</b>
 
