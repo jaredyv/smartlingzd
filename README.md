@@ -15,7 +15,7 @@ Python Script for Synchronizing Zendesk articles with Smartling via API
 
 - Set config file values
 
-- Backup existing content using new script</b>
+- Backup existing content using new script </b>
 
 <br/>
 
@@ -42,7 +42,7 @@ Previously transferred content is transferred again with the ‘all’ option. T
 
 Currently, all hyperlinks containing ‘/en-us/’ in the path are updated to point to the translated version instead. This may need to be refined depending on what sort of links are on the actual articles.
 
-<p>
+<br/>
 
 <b>CONFIG FILES</b>
 
