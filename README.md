@@ -17,7 +17,7 @@ Python Script for Synchronizing Zendesk articles with Smartling via API
 
 - Backup existing content using new script</b>
 
-
+<p>
 <b>NOTES</b>
 
 Be aware of handling of ‘draft’ articles and incomplete translations in Smartling:
@@ -40,6 +40,8 @@ Authorizes to all languages in Smartling. Alternative is to set approve ‘off�
 Previously transferred content is transferred again with the ‘all’ option. There’s no ‘all since’ logic. Therefore changes made in ZD could be overwritten. These items should be excluded.
 
 Currently, all hyperlinks containing ‘/en-us/’ in the path are updated to point to the translated version instead. This may need to be refined depending on what sort of links are on the actual articles.
+
+<p>
 
 <b>CONFIG FILES</b>
 
@@ -81,7 +83,7 @@ es = es-es
 
 ja = ja-JP</b>
 
-
+<p>
 
 <b>translate.cfg</b>
 
@@ -104,7 +106,7 @@ ja = ja-JP</b>
 
 987654
 
-
+<p>
 <b>COMMAND-LINE OPTIONS</b>
 
 -t, --translate             
