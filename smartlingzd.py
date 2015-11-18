@@ -671,6 +671,7 @@ def upload_source_file_to_smartling(path, file_name, file_type,
                                                 ','.join(fields_to_translate)))
     upload_data.addDirective(SmartlingDirective('string_format_paths', 'html:body'))
     upload_data.addDirective(SmartlingDirective('source_key_paths', 'title'))
+    upload_data.addDirective(SmartlingDirective('smartling.namespace', 'zendesk'))
 
     response, http_response_code = slapi.upload(upload_data)
 
