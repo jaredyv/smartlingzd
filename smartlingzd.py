@@ -269,7 +269,6 @@ def upload_section_translation_to_zendesk(section_id, zd_locale, translation, zd
 
     try:
         # Assume it exists and just needs to be updated
-        zdapi.help_center_section_translation_show(section_id, zd_locale)
         zdapi.help_center_section_translation_update(section_id, zd_locale, translation)
         logging.debug('Updated section %s translation, locale %s', section_id, zd_locale)
 
@@ -302,7 +301,6 @@ def upload_category_translation_to_zendesk(category_id, locale, translation, zda
 
     try:
         # Assume it exists and just needs to be updated
-        zdapi.help_center_category_translation_show(category_id, locale)
         zdapi.help_center_category_translation_update(category_id, locale, translation)
         logging.debug('Updated category %s, locale %s', str(category_id), locale)
 
@@ -381,7 +379,7 @@ def construct_section_translation(translation_data, zd_locale):
     translation = {}
 
     translation['locale'] = zd_locale
-    translation['name'] = translation_data['name']
+    translation['title'] = translation_data['name']
     translation['description'] = translation_data['description']
 
     return translation
@@ -403,7 +401,7 @@ def construct_category_translation(translation_data, zd_locale):
     translation = {}
 
     translation['locale'] = zd_locale
-    translation['name'] = translation_data['name']
+    translation['title'] = translation_data['name']
     translation['description'] = translation_data['description']
 
     return translation
@@ -507,12 +505,12 @@ def transfer_translation_from_smartling(item_type, item_id,
 
     elif item_type == TYPE_SECTION:
 
-        translation = construct_section_translation(translation_data)
+        translation = construct_section_translation(translation_data, zd_locale)
         upload_section_translation_to_zendesk(item_id, zd_locale, translation, zdapi)
 
     elif item_type == TYPE_CATEGORY:
 
-        translation = construct_category_translation(translation_data)
+        translation = construct_category_translation(translation_data, zd_locale)
         upload_category_translation_to_zendesk(item_id, zd_locale, translation, zdapi)
 
     else:
